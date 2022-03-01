@@ -9,13 +9,13 @@ const typeDefs = gql`
         body: String!
         heroImage: String
         userName: String!
+        userProfilePic: String
     }
 
     type Comment{
         userName: String!
         postId: String!
         body: String!
-        replies: [Comment!]
     }
 
     # Queries
@@ -25,6 +25,10 @@ const typeDefs = gql`
     }
 
     # Mutations
+    type Mutation {
+        addComment(userName: String!, postId: String!, body: String!): Comment!
+        addPost(userName: String!, body: String!, heroImage: String, userProfilePic: String): Post!
+    }
 `;
 
 module.exports = {typeDefs};
